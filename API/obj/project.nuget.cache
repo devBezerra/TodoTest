@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cyuf9vPAtAk=",
+  "dgSpecHash": "hl9zsOSIuu8=",
   "success": true,
-  "projectFilePath": "/home/bezerra/Documentos/test/API/API.csproj",
+  "projectFilePath": "/home/bezerra/Documentos/test/TodoTest/API/API.csproj",
   "expectedPackageFiles": [
     "/home/bezerra/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/home/bezerra/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/8.0.10/microsoft.aspnetcore.authentication.jwtbearer.8.0.10.nupkg.sha512",

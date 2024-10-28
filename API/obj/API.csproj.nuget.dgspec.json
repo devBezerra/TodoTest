@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/bezerra/Documentos/test/API/API.csproj": {}
+    "/home/bezerra/Documentos/test/TodoTest/API/API.csproj": {}
   },
   "projects": {
-    "/home/bezerra/Documentos/test/API/API.csproj": {
+    "/home/bezerra/Documentos/test/TodoTest/API/API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/bezerra/Documentos/test/API/API.csproj",
+        "projectUniqueName": "/home/bezerra/Documentos/test/TodoTest/API/API.csproj",
         "projectName": "API",
-        "projectPath": "/home/bezerra/Documentos/test/API/API.csproj",
+        "projectPath": "/home/bezerra/Documentos/test/TodoTest/API/API.csproj",
         "packagesPath": "/home/bezerra/.nuget/packages/",
-        "outputPath": "/home/bezerra/Documentos/test/API/obj/",
+        "outputPath": "/home/bezerra/Documentos/test/TodoTest/API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/bezerra/.nuget/NuGet/NuGet.Config"
