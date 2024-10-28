@@ -1,0 +1,24 @@
+<form [formGroup]="form">
+  <div class="flex align-items-center">
+    <input
+      pInputText
+      formControlName="title"
+      placeholder="Título"
+      class="flex-auto"
+      autocomplete="off"
+    />
+  </div>
+  <div class="flex align-items-center">
+    <input
+      pInputText
+      formControlName="description"
+      placeholder="Descrição"
+      class="flex-auto"
+      autocomplete="off"
+    />
+  </div>
+  <div class="flex justify-content-end">
+    <p-button label="Voltar" severity="secondary" (onClick)="closeDialog()" />
+    <p-button label="Salvar" (onClick)="onSubmit()" />
+  </div>
+</form>

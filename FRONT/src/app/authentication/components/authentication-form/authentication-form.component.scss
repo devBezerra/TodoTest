@@ -1,0 +1,40 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+}
+
+.login-card {
+    width: 40rem; 
+    padding: 2rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center; 
+}
+
+.btn-login-container {
+    display: flex;
+    justify-content: center;
+}
+
+.input-error {
+    color: #b40e0e;
+    font-size: 0.85rem;
+}
+
+.register {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.input{
+    width: 80%;
+}

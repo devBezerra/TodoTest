@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-logout, .btn-add {
+  display: flex;
+  align-items: center;
+}
+
+.btn-add-container {
+  margin-bottom: 15px;
+}

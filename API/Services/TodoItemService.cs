@@ -1,6 +1,7 @@
 using API.Models;
 using API.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace API.Services
 {
@@ -23,13 +24,23 @@ namespace API.Services
 
             return todoItem;
         }
-        public async Task<List<TodoItem>> FindByUserId(int userId, int pageNumber, int pageSize)
+        public async Task<PagedResult<TodoItem>> FindByUserId(int userId, int pageNumber, int pageSize)
         {
-            return await _context.TodoItems
+            int totalRecords = await _context.TodoItems
+                .Where(t => t.UserId == userId)
+                .CountAsync();
+
+            List<TodoItem> items = await _context.TodoItems
+                .Where(t => t.UserId == userId)
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
-                .Where(t => t.UserId == userId)
                 .ToListAsync();
+
+            return new PagedResult<TodoItem>
+            {
+                Items = items,
+                TotalCount = totalRecords
+            };
         }
 
         public async Task<TodoItem> FindById(int id, int userId)
@@ -54,4 +65,11 @@ namespace API.Services
             return true;
         }
     }
+
+    public class PagedResult<T>
+    {
+        public List<T> Items { get; set; } = new List<T>();
+        public int TotalCount { get; set; }
+    }
+
 }

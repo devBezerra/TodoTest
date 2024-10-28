@@ -1,0 +1,39 @@
+<div class="form-container">
+  <p-card class="form-card" [header]="this.id ? 'Editar' : 'Cadastrar'">
+    <form [formGroup]="form" class="form">
+        <input
+        class="input"
+          pInputText
+          formControlName="title"
+          placeholder="Título"
+          class="flex-auto"
+          autocomplete="off"
+        />
+        <small
+        id="title-help"
+        *ngIf="form.get('title')?.invalid"
+        class="input-error"
+      >
+        {{form.get('title')?.errors?.['message']}}
+      </small>
+        <input
+          pInputText
+          formControlName="description"
+          placeholder="Descrição"
+          class="flex-auto"
+          autocomplete="off"
+        />
+        <small
+        id="description-help"
+        *ngIf="form.get('description')?.invalid"
+        class="input-error"
+      >
+        {{form.get('description')?.errors?.['message']}}
+      </small>
+      <div class="buttons">
+        <p-button class="button" label="Voltar" severity="secondary" (onClick)="back()" />
+        <p-button label="Salvar" (onClick)="onSubmit()" />
+      </div>
+    </form>
+  </p-card>
+</div>

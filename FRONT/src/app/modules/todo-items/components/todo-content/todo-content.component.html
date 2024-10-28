@@ -1,0 +1,16 @@
+<div class="header">
+  <h1>Suas tarefas:</h1>
+  <p-button
+    class="btn-logout"
+    label="Sair"
+    (click)="logout()"
+    icon="pi pi-sign-out"
+  />
+</div>
+
+<div class="btn-add-container">
+  <p-button (onClick)="toAdd()" label="Novo Registro" class="btn-add" icon="pi pi-plus"/>
+</div>
+<p-confirmDialog></p-confirmDialog>
+
+<app-todo-list></app-todo-list>

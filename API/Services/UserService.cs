@@ -28,6 +28,12 @@ namespace API.Services
             return true;
         }
 
+        public async Task<User> FindById(int id)
+        {
+            return await _context.Users
+                .FirstOrDefaultAsync(t => t.Id == id);
+        }
+
         public async Task<string> Authenticate(string name, string password)
         {
             var user = await _context.Users.SingleOrDefaultAsync(u => u.Name == name);

@@ -31,10 +31,10 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> FindByUserId([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
+        public async Task<ActionResult<PagedResult<TodoItem>>> FindByUserId([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
             int userId = UserHelper.GetCurrentUserId(User);
-            List<TodoItem> todoItems = await _todoService.FindByUserId(userId, pageNumber, pageSize);
+            PagedResult<TodoItem> todoItems = await _todoService.FindByUserId(userId, pageNumber, pageSize);
             return Ok(todoItems);
         }
 
@@ -55,14 +55,10 @@ namespace API.Controllers
         public async Task<IActionResult> PutTodoItem([FromBody] TodoItem todoItem, int id)
         {
             int userId = UserHelper.GetCurrentUserId(User);
+            todoItem.UserId = userId;
             if (id != todoItem.Id)
             {
                 return BadRequest(new { Message = "Ids não coincidem." });
-            }
-
-            if (todoItem.UserId != userId)
-            {
-                return BadRequest(new { Message = "VOcê não possue autorização para alterar uma tarefa de outro usuário." });
             }
 
             TodoItem todoUpdated = await _todoService.Update(todoItem);

@@ -1,0 +1,49 @@
+<div class="login-container">
+  <p-card class="login-card" header="Entrar">
+    <section class="auth-form">
+      <form [formGroup]="form" class="form">
+        <input
+          class="input"
+          pInputText
+          formControlName="name"
+          placeholder="Nome"
+        />
+        <small
+          id="name-help"
+          *ngIf="form.get('name')?.invalid"
+          class="input-error"
+        >
+          {{form.get('name')?.errors?.['message']}}
+        </small>
+
+        <input
+          class="input"
+          pInputText
+          type="password"
+          formControlName="password"
+          name="password"
+          placeholder="Senha"
+        />
+        <small
+          id="password"
+          *ngIf="form.get('password')?.invalid"
+          class="input-error"
+        >
+          {{form.get('password')?.errors?.['message']}}
+        </small>
+
+        <p-button
+          class="btn-login"
+          label="Entrar"
+          [disabled]="this.form.invalid"
+          (onClick)="onLoginSubmit()"
+        ></p-button>
+
+        <p class="register">
+          Não possue cadastro?
+          <p-button label="Registre-se" [link]="true" (click)="toRegister()" />
+        </p>
+      </form>
+    </section>
+  </p-card>
+</div>

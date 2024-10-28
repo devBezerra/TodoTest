@@ -1,0 +1,64 @@
+<div class="register-container">
+  <p-card class="register-card" header="Registrar">
+    <section>
+      <form [formGroup]="form" class="form">
+        <input
+          class="input"
+          pInputText
+          formControlName="name"
+          placeholder="Nome"
+        />
+        <small
+          id="name-help"
+          *ngIf="form.get('name')?.invalid"
+          class="input-error"
+        >
+          {{form.get('name')?.errors?.['message']}}
+        </small>
+
+        <input
+          pInputText
+          type="password"
+          class="input"
+          formControlName="password"
+          name="password"
+          placeholder="Senha"
+        />
+        <small
+          id="password"
+          *ngIf="form.get('password')?.invalid"
+          class="input-error"
+        >
+          {{form.get('password')?.errors?.['message']}}
+        </small>
+
+        <input
+          pInputText
+          type="password"
+          class="input"
+          formControlName="confirmPassword"
+          name="confirmPassword"
+          placeholder="Confirmar Senha"
+        />
+        <small
+          id="confirmPassword"
+          *ngIf="form.get('confirmPassword')?.invalid"
+          class="input-error"
+        >
+          {{form.get('confirmPassword')?.errors?.['message']}}
+        </small>
+
+        <p-button
+          label="Cadastrar"
+          [disabled]="this.form.invalid"
+          (onClick)="onRegisterSubmit()"
+        ></p-button>
+
+        <p class="register">
+          Já possue conta?
+          <p-button label="Faça login" [link]="true" (click)="toLogin()" />
+        </p>
+      </form>
+    </section>
+  </p-card>
+</div>

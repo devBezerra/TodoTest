@@ -117,3 +117,4 @@
 /home/bezerra/Documentos/test/API/obj/Debug/net8.0/API.pdb
 /home/bezerra/Documentos/test/API/obj/Debug/net8.0/API.genruntimeconfig.cache
 /home/bezerra/Documentos/test/API/obj/Debug/net8.0/ref/API.dll
+/home/bezerra/Documentos/test/API/obj/Debug/net8.0/API.sourcelink.json
