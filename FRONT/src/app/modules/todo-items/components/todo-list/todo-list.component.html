@@ -12,8 +12,8 @@
   </ng-template>
   <ng-template pTemplate="body" let-todoItem let-columns="columns">
     <tr [ngClass]="{ completed: todoItem.isCompleted }">
-      <td>{{ todoItem.id }}</td>
-      <td>{{ todoItem.title }}</td>
+      <td><b>{{ todoItem.id }}</b></td>
+      <td><b>{{ todoItem.title }}</b></td>
       <td>{{ todoItem.description }}</td>
       <td>
         <p-button

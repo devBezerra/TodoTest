@@ -29,7 +29,7 @@ export class TodoFormComponent implements OnInit {
   constructor(
     private readonly service: TodoItemsService,
     public router: Router,
-    public activatedRoute: ActivatedRoute
+    public activatedRoute: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {
