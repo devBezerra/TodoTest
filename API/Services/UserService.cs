@@ -34,6 +34,12 @@ namespace API.Services
                 .FirstOrDefaultAsync(t => t.Id == id);
         }
 
+        public async Task<User> FindByName(string name)
+        {
+            return await _context.Users
+                .FirstOrDefaultAsync(u => u.Name == name);
+        }
+
         public async Task<string> Authenticate(string name, string password)
         {
             var user = await _context.Users.SingleOrDefaultAsync(u => u.Name == name);
@@ -41,6 +47,19 @@ namespace API.Services
                 return null;
 
             return GenerateJwtToken(user);
+        }
+
+        private async Task<bool> IsUniqueName(string name)
+        {
+            var user = await FindByName(name);
+            if (user is null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private static string ComputeHash(string password)

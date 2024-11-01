@@ -12,6 +12,11 @@ namespace API.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterUserDto request)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("O nome de usuário já existe.");
+            }
+
             if (await _userService.RegisterUser(request.Name, request.Password, request.ConfirmPassword))
                 return Ok(new { Message = "Usuário registrado com sucesso!" });
             return BadRequest(new { Message = "Senhas não coincidem." });
@@ -22,7 +27,7 @@ namespace API.Controllers
         {
             var token = await _userService.Authenticate(request.Name, request.Password);
             if (token == null)
-                return Unauthorized(new { Message = "Credenciais Invalidas" });
+                return Unauthorized(new { Message = "Credenciais Inválidas" });
 
             return Ok(new { Token = token });
         }
@@ -30,6 +35,7 @@ namespace API.Controllers
 
     public class RegisterUserDto
     {
+        [UniqueName]
         public string Name { get; set; }
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
